@@ -9,7 +9,7 @@ services:
         - 8099:8080
 
     db:
-      image: mysql:5.7
+      image: mariadb:10.5.8
       container_name: db
       environment:
         MYSQL_ROOT_PASSWORD: db_data_123
@@ -18,8 +18,8 @@ services:
 
     laravel:
       container_name: laravel-app
-      build: 
-        context: . 
+      build:
+        context: .
         dockerfile: Dockerfile
       volumes:
         - ../:/var/app
