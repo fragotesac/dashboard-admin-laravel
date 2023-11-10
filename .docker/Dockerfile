@@ -14,10 +14,8 @@ RUN docker-php-ext-enable zip \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install bcmath \
     && docker-php-ext-install soap \
+    && docker-php-ext-install intl \
     && docker-php-source delete
-
-#composer install
-COPY --from=composer:2.1.9 /usr/bin/composer /usr/bin/composer
 
 #apache setup
 RUN a2enmod rewrite
